@@ -12,6 +12,7 @@ varManuf=1+CVm.*randn(1,n);
 
 h=h0.*vectorUnos-zR;
 q=(k.*h.^x).*varManuf;
+h=h0.*vectorUnos-zR-(0.465.*(q*tril(ones(n),0)).^1.75.*D.^-4.75.*(le+s))*transpose(matrizAcum);
 
 %Resultados
 h0
