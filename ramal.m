@@ -7,8 +7,11 @@ matrizAcum=tril(ones(n),0);
 xR=(s.*vectorUnos)*transpose(matrizAcum);
 zR=-I0.*xR;
 
+%Variación manufactura
+varManuf=1+CVm.*randn(1,n);
+
 h=h0.*vectorUnos-zR;
-q=(k.*h.^x);
+q=(k.*h.^x).*varManuf;
 
 %Resultados
 h0
