@@ -10,9 +10,10 @@ function [h,q]=ramal(h0,n,k,x,CVm,le,s,D,I0,varManuf)
   h=h0.*vectorUnos;
   hant=0.*vectorUnos;
 
-  while sum(abs(h-hant))>1e-3;
+  while max(abs(h-hant))>1e-3;
     hant=h;
     q=(k.*h.^x).*varManuf;
+    q=q.*(q>0);
     h=h0.*vectorUnos-zR-transpose(matrizAcum)*(0.465.*(matrizAcum*q).^1.75.*D.^-4.75.*(le+s));
   end
 
